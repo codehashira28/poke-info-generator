@@ -11,10 +11,10 @@
 </head>
 <body style="height:1500px">
 
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-bottom">
+<nav class="navbar sticky-top navbar-expand-sm bg-dark">
   <div class="container-fluid">
-    <div type="button" class="navbar-light navbar-lg">Choose Generation</div>
-        <div class="btn-group btn-group-text-center">
+    <div type="button" class="navbar-light fs-4 ">Choose Generation</div>
+        <div class="btn-group">
       <!-- <div class="btn-group-center "></div> -->
       <button type="button" class="btn btn-outline-light" id="gen-1">Gen. 1</button>
       <button type="button" class="btn btn-outline-light" id="gen-2">Gen. 2</button>
@@ -29,11 +29,15 @@
   </div>
 </nav>
 <header>
-    <h1 type="button" class="text-center">Pokemon</h1>
+
+  <div class="d-flex gap-2 d-md-flex justify-content-md-center">
+  <h1 class="fs-1 text-center mt-4" type="button">Pokemon</h1>
+</div>
+    <!-- <p class="d-flex gap-2 d-md-flex justify-content-md-center fs-1 mt-4" type="button">Pokemon</p> -->
     <!-- <div style= "width: 600px;height: 200px; -->
 </header>
 <hr>
-<h2 class="text-center mt-4">This is a Pokemon stat wordcloud generator. When you select a generation, then a pokemon. The information of the pokemon is then generated into a wordcloud, where the word used the most is the biggest.</h2>
+<h2 class="text-center mt-4 fs-3">This is a Pokemon stat wordcloud generator. When you select a generation, then a pokemon. The information of the pokemon is then generated into a wordcloud, where the word used the most is the biggest.</h2>
 <div id="pokemon-list" class="d-flex flex-wrap justify-content-center">
 
 </div>
