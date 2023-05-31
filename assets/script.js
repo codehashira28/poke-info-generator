@@ -1,6 +1,7 @@
 var pokemonlist = document.getElementById('pokemon-list');
 var pokeInfo = document.getElementById('poke-info');
 var heading = document.querySelector('h2');
+var radnButton = document.querySelector('.random-btn');
 
 // loop to add an event listener "generateList" on every generation button
 
@@ -54,6 +55,8 @@ function generateList(event) {
 
 function displayInfo(event) {
     heading.style.display = "none";
+    pokeInfo.style.display = null;
+    document.documentElement.scrollTop = 0;
     pokemonlist.setAttribute('style', 'display: none !important');
     pokeInfo.className = "d-flex flex-row-reverse flex-wrap-reverse justify-content-center";
     pokeInfo.innerHTML = "";
@@ -67,7 +70,8 @@ function displayInfo(event) {
     backButton.style.top = "0";
     if(event.target.localName != "button") {
         generateText(event.target.parentNode.id);
-    } else {
+    }
+    else {
         generateText(event.target.id);
     }
     pokeInfo.appendChild(backButton);
@@ -159,6 +163,22 @@ function generateText(pokemonName) {
 
 function goBack() {
     heading.style.display = "block";
-    pokeInfo.style.display = "none";
+    pokeInfo.setAttribute('style', 'display: none !important');
     pokemonlist.style.display = null;
 }
+
+function chooseRandom(event) {
+    var randomGeneration = Math.ceil(Math.random() * 9);
+    console.log(randomGeneration);
+    fetch("https://pokeapi.co/api/v2/generation/" + randomGeneration)
+    .then(function (response) {
+        return response.json();
+    })
+    .then(function (data) {
+        event.target.id = data.pokemon_species[Math.floor(Math.random()*data.pokemon_species.length)].name;
+        console.log(event.target);
+        displayInfo(event);
+   })
+}
+
+radnButton.addEventListener('click', chooseRandom);
