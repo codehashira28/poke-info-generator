@@ -11,7 +11,7 @@ for(let i = 1; i <= 9; ++i) {
 // function to generate list of pokemon based on generation selected
 
 function generateList(event) {
-    heading.textContent = "Select a pokemon to see its data";
+    heading.textContent = "Select a pokemon";
     pokemonlist.innerHTML = "";
     var mypokemon = [];
     fetch("https://pokeapi.co/api/v2/generation/" + event.target.id[event.target.id.length-1])
