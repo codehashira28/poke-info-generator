@@ -2,6 +2,8 @@ var pokemonlist = document.getElementById('pokemon-list');
 var pokeInfo = document.getElementById('poke-info');
 var heading = document.querySelector('h2');
 var radnButton = document.querySelector('.random-btn');
+var searchBar = document.querySelector('input');
+var submitbtn = document.querySelector('form > button');
 
 // loop to add an event listener "generateList" on every generation button
 
@@ -14,6 +16,8 @@ for(let i = 1; i <= 9; ++i) {
 function generateList(event) {
     heading.textContent = "Select a pokemon";
     pokemonlist.innerHTML = "";
+    pokeInfo.setAttribute('style', 'display: none !important');
+    pokemonlist.style.display = null;
     var mypokemon = [];
     fetch("https://pokeapi.co/api/v2/generation/" + event.target.id[event.target.id.length-1])
         .then(function (response) {
@@ -121,8 +125,6 @@ function generateText(pokemonName) {
     pokemon + " " +
     pokemon + " " +
     pokemon;
- 
-    console.log(text);
    
     fetch("https://textvis-word-cloud-v1.p.rapidapi.com/v1/textToCloud", {
         method: "POST",
@@ -168,7 +170,8 @@ function goBack() {
 }
 
 function chooseRandom(event) {
-    var randomGeneration = Math.ceil(Math.random() * 9);
+    var generations = [1,2,9];
+    var randomGeneration = generations[Math.floor(Math.random() * generations.length)];
     console.log(randomGeneration);
     fetch("https://pokeapi.co/api/v2/generation/" + randomGeneration)
     .then(function (response) {
@@ -181,4 +184,14 @@ function chooseRandom(event) {
    })
 }
 
+function searchPokemon(event) {
+    event.preventDefault();
+    var pokemonSearchName = event.target.previousSibling.previousSibling.value.trim();
+    pokemonSearchName = pokemonSearchName.split(' ').join('-').toLowerCase();
+    event.target.id = pokemonSearchName;
+    searchBar.value = "";
+    displayInfo(event);
+}
+
 radnButton.addEventListener('click', chooseRandom);
+submitbtn.addEventListener('click', searchPokemon);
