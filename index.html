@@ -7,11 +7,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@5.2.3/dist/vapor/bootstrap.min.css" />
   <link rel="stylesheet" href="./assets/styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
   <title>Pokemon Stat Generator</title>
 </head>
 <body style="height:1500px">
 
-<nav class="navbar fixed-top navbar-expand-sm bg-dark">
+<nav class="navbar fixed-top navbar-expand-sm bg-dark d-none d-lg-block">
   <div class="container-fluid">
     <button type="button" class="btn navbar-light fs-6 random-btn">Choose Generation</button>
         <div class="btn-group">
@@ -30,8 +31,25 @@
         <input class="form-control me-1 d-flex justify-content " type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
-  </div>
+      </div>
+    </div>
 </nav>
+<div class="dropdown dropdown text-center d-lg-none">
+    <button class="btn btn btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+      <div class="container-fluid">  Select Generation 
+    </button>
+    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+      <li><button type="button" class="btn btn" id="gen-1">Gen. 1</button></li>
+      <li><button type="button" class="btn btn" id="gen-2">Gen. 2</button></li>
+      <li><button type="button" class="btn btn" id="gen-3">Gen. 3</button></li>
+      <li><button type="button" class="btn btn" id="gen-4">Gen. 4</button></li>
+      <li><button type="button" class="btn btn" id="gen-5">Gen. 5</button></li>
+      <li><button type="button" class="btn btn" id="gen-6">Gen. 6</button></li>
+      <li><button type="button" class="btn btn" id="gen-7">Gen. 7</button></li>
+      <li><button type="button" class="btn btn" id="gen-8">Gen. 8</button></li>
+      <li><button type="button" class="btn btn" id="gen-9">Gen. 9</button></li>
+    </ul>
+  </div>
 <header>
 
   <div class="d-flex gap-2 d-md-flex justify-content-md-center">
