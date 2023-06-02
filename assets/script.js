@@ -3,7 +3,9 @@ var pokeInfo = document.getElementById('poke-info');
 var heading = document.querySelector('h2');
 var radnButton = document.querySelector('.random-btn');
 var searchBar = document.querySelector('input');
+var searchBar2 = document.querySelector('.fixed-bottom > form > input');
 var submitbtn = document.querySelector('form > button');
+var submitbtn2 = document.querySelector('.fixed-bottom > form > button');
 
 // loop to add an event listener "generateList" on every generation button
 
@@ -194,5 +196,15 @@ function searchPokemon(event) {
     displayInfo(event);
 }
 
+function searchPokemon2(event) {
+    event.preventDefault();
+    var pokemonSearchName = event.target.previousSibling.previousSibling.value.trim();
+    pokemonSearchName = pokemonSearchName.split(' ').join('-').toLowerCase();
+    event.target.id = pokemonSearchName;
+    searchBar2.value = "";
+    displayInfo(event);
+}
+
 radnButton.addEventListener('click', chooseRandom);
 submitbtn.addEventListener('click', searchPokemon);
+submitbtn2.addEventListener('click', searchPokemon2);
