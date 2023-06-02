@@ -9,6 +9,7 @@ var submitbtn = document.querySelector('form > button');
 
 for(let i = 1; i <= 9; ++i) {
   document.getElementById('gen-' + i).addEventListener('click', generateList);
+  document.getElementById('gen-' + i + '-' + i).addEventListener('click', generateList);
 }
 
 // function to generate list of pokemon based on generation selected
