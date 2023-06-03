@@ -6,6 +6,7 @@ var searchBar = document.querySelector('input');
 var searchBar2 = document.querySelector('.fixed-bottom > form > input');
 var submitbtn = document.querySelector('form > button');
 var submitbtn2 = document.querySelector('.fixed-bottom > form > button');
+var searchHistory = document.querySelector('.search-history');
 
 // loop to add an event listener "generateList" on every generation button
 
@@ -22,6 +23,7 @@ function generateList(event) {
     pokeInfo.setAttribute('style', 'display: none !important');
     pokemonlist.style.display = null;
     var mypokemon = [];
+    searchHistory.setAttribute('style', 'display: none !important');
     fetch("https://pokeapi.co/api/v2/generation/" + event.target.id[event.target.id.length-1])
         .then(function (response) {
         return response.json()
@@ -64,6 +66,7 @@ function displayInfo(event) {
     heading.style.display = "none";
     pokeInfo.style.display = null;
     document.documentElement.scrollTop = 0;
+    searchHistory.setAttribute('style', 'display: none !important');
     pokemonlist.setAttribute('style', 'display: none !important');
     pokeInfo.className = "d-flex flex-row-reverse flex-wrap-reverse justify-content-center";
     pokeInfo.innerHTML = "";
@@ -77,9 +80,11 @@ function displayInfo(event) {
     backButton.style.top = "0";
     if(event.target.localName != "button") {
         generateText(event.target.parentNode.id);
+        localStorage.setItem(event.target.parentNode.id, event.target.parentNode.id);
     }
     else {
         generateText(event.target.id);
+        localStorage.setItem(event.target.id, event.target.id);
     }
     pokeInfo.appendChild(backButton);
     var wordCloud = document.createElement('img');
@@ -104,12 +109,17 @@ function generateText(pokemonName) {
     .then(function (data) {
         data.moves.forEach(function(move) {
         text += move.move.name.replace("-", " ") + " ";
-   })
+        fetch(data.species.url)
+        .then(function (response) {
+        return response.json()
+        })
+        .then(function (data2) {
+   
    
     pokeimage.src = data.sprites.front_default;
     pokeimage.style.width = "200px";
     infocard.appendChild(pokeimage);
-    infocardtitle.textContent = pokemon;
+    infocardtitle.innerHTML = pokemon + '<br>' +  "Gen-" + data2.generation.url[data2.generation.url.length-2];
     infocardtitle.style.textAlign = "center";
     infocardtitle.style.fontSize = "2rem";
     infocard.appendChild(infocardtitle);
@@ -160,9 +170,12 @@ function generateText(pokemonName) {
      })
      .catch(err => {
        console.log(err);
-     });
- })
-}
+      });
+    })
+    })
+     })
+  }
+
 
 // function for the 'Back' button to return to the generated list page
 
@@ -174,6 +187,7 @@ function goBack() {
 
 function chooseRandom(event) {
     var generations = [1,2,9];
+    searchHistory.setAttribute('style', 'display: none !important');
     var randomGeneration = generations[Math.floor(Math.random() * generations.length)];
     console.log(randomGeneration);
     fetch("https://pokeapi.co/api/v2/generation/" + randomGeneration)
@@ -205,6 +219,20 @@ function searchPokemon2(event) {
     displayInfo(event);
 }
 
+function displayHistory() {
+  if(localStorage.length > 0) {
+    for(var i = 0; i < localStorage.length; ++i) {
+      var entry = document.createElement('button');
+      entry.innerHTML = localStorage.getItem(localStorage.key(i));
+      entry.id = localStorage.key(i);
+      entry.addEventListener('click', displayInfo);
+      entry.className = "btn btn-outline-white mb-2";
+      searchHistory.appendChild(entry);
+     }
+    }
+  }
+
 radnButton.addEventListener('click', chooseRandom);
 submitbtn.addEventListener('click', searchPokemon);
 submitbtn2.addEventListener('click', searchPokemon2);
+displayHistory();

@@ -19,3 +19,7 @@
 h1 a {
   text-decoration: none;
 }
+
+.search-history {
+  width: 10%;
+}
