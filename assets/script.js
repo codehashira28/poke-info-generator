@@ -110,6 +110,7 @@ function generateText(pokemonName) {
     .then(function (data) {
         data.moves.forEach(function(move) {
         text += move.move.name.replace("-", " ") + " ";
+        });
         fetch(data.species.url)
         .then(function (response) {
         return response.json()
@@ -173,9 +174,8 @@ function generateText(pokemonName) {
        console.log(err);
       });
     })
-    })
-     })
-  }
+  })
+}
 
 
 // function for the 'Back' button to return to the generated list page
