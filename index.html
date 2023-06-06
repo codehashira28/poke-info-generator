@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -11,78 +11,90 @@
   <title>Pokemon Stat Generator</title>
 </head>
 <body style="height:1500px; padding-top: 8rem;">
-  
+
+  <!-- Generation buttons to click when screen size is large -->
   <header>
-  
-  
+
+
     <h1 class="fs-1 text-center fixed-top " type="button"><a href="">Pokemon</a></h1>
       <!-- <p class="d-flex gap-2 d-md-flex justify-content-md-center fs-1 mt-4" type="button">Pokemon</p> -->
       <!-- <div style= "width: 600px;height: 200px; -->
   </header>
-  <nav class="navbar navbar-expand-sm bg-dark d-none d-lg-block fixed-top mt-5">
-    <div class="container-fluid">
-  
-      <button type="button" class="btn navbar-light fs-6 random-btn">Choose Generation</button>
-     
-          <div class="btn-group">
-        <!-- <div class="btn-group-center "></div> -->
-        <button type="button" class="btn btn-outline-white" id="gen-1">Gen. 1</button>
-        <button type="button" class="btn btn-outline-white" id="gen-2">Gen. 2</button>
-        <button type="button" class="btn btn-outline-white" id="gen-3">Gen. 3</button>
-        <button type="button" class="btn btn-outline-white" id="gen-4">Gen. 4</button>
-        <button type="button" class="btn btn-outline-white" id="gen-5">Gen. 5</button>
-        <button type="button" class="btn btn-outline-white" id="gen-6">Gen. 6</button>
-        <button type="button" class="btn btn-outline-white" id="gen-7">Gen. 7</button>
-        <button type="button" class="btn btn-outline-white" id="gen-8">Gen. 8</button>
-        <button type="button" class="btn btn-outline-white" id="gen-9">Gen. 9</button>
-        </div>
-        <form class="d-flex">
-          <input class="form-control me-1 d-flex justify-content " type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
-      
-    </div>
-    </div>
-    </nav>
-    <div class="dropdown-center text-center d-lg-none fixed-top mt-5 ">
-      <button class="btn btn btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-        <div class="container-fluid">  Select Generation 
-      </button>
-      <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
-        <li><button type="button" class="btn btn fs-4" id="gen-1">Gen. 1</button></li>
-        <li><hr class="dropdown-divider"></li>
-        <li><button type="button" class="btn btn fs-4" id="gen-2">Gen. 2</button></li>
-        <li><button type="button" class="btn btn" id="gen-3">Gen. 3</button></li>
-        <li><button type="button" class="btn btn" id="gen-4">Gen. 4</button></li>
-        <li><button type="button" class="btn btn" id="gen-5">Gen. 5</button></li>
-        <li><button type="button" class="btn btn" id="gen-6">Gen. 6</button></li>
-        <li><button type="button" class="btn btn" id="gen-7">Gen. 7</button></li>
-        <li><button type="button" class="btn btn" id="gen-8">Gen. 8</button></li>
-        <li><hr class="dropdown-divider-"></li>
-        <li><button type="button" class="btn btn" id="gen-9">Gen. 9</button></li>
-      </ul>
-    </div>
-    <div class="fixed-bottom d-lg-none opacity-75">
+<nav class="navbar fixed-top navbar-expand-sm bg-dark d-none d-lg-block">
+  <div class="container-fluid">
+    <button type="button" class="btn navbar-light fs-6 random-btn">Choose Generation</button>
+        <div class="btn-group">
+      <!-- <div class="btn-group-center "></div> -->
+      <button type="button" class="btn btn-outline-white" id="gen-1">Gen. 1</button>
+      <button type="button" class="btn btn-outline-white" id="gen-2">Gen. 2</button>
+      <button type="button" class="btn btn-outline-white" id="gen-3">Gen. 3</button>
+      <button type="button" class="btn btn-outline-white" id="gen-4">Gen. 4</button>
+      <button type="button" class="btn btn-outline-white" id="gen-5">Gen. 5</button>
+      <button type="button" class="btn btn-outline-white" id="gen-6">Gen. 6</button>
+      <button type="button" class="btn btn-outline-white" id="gen-7">Gen. 7</button>
+      <button type="button" class="btn btn-outline-white" id="gen-8">Gen. 8</button>
+      <button type="button" class="btn btn-outline-white" id="gen-9">Gen. 9</button>
+      </div>
+      <form class="d-flex">
+        <input class="form-control me-1 d-flex justify-content " type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+      </div>
+</nav>
+
+<!-- Dropdown menu when screen size is small -->
+<div class="dropdown dropdown text-center d-lg-none fixed-top mt-5">
+    <button class="btn btn btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <div class="container-fluid">Select Generation</div>
+    </button>
+    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+      <li class="d-flex justify-content-center"><button type="button" class="btn btn fs-3" id="gen-1-1">Gen. 1</button></li>
+      <li><hr class="dropdown-divider-"></li>
+      <li class="d-flex justify-content-center"><button type="button" class="btn btn fs-3" id="gen-2-2">Gen. 2</button></li>
+      <li><hr class="dropdown-divider-"></li>
+      <li class="d-flex justify-content-center"><button type="button" class="btn btn fs-3" id="gen-3-3">Gen. 3</button></li>
+      <li><hr class="dropdown-divider-"></li>
+      <li class="d-flex justify-content-center"><button type="button" class="btn btn fs-3" id="gen-4-4">Gen. 4</button></li>
+      <li><hr class="dropdown-divider-"></li>
+      <li class="d-flex justify-content-center"><button type="button" class="btn btn fs-3" id="gen-5-5">Gen. 5</button></li>
+      <li><hr class="dropdown-divider-"></li>
+      <li class="d-flex justify-content-center"><button type="button" class="btn btn fs-3" id="gen-6-6">Gen. 6</button></li>
+      <li><hr class="dropdown-divider-"></li>
+      <li class="d-flex justify-content-center"><button type="button" class="btn btn fs-3" id="gen-7-7">Gen. 7</button></li>
+      <li><hr class="dropdown-divider-"></li>
+      <li class="d-flex justify-content-center"><button type="button" class="btn btn fs-3" id="gen-8-8">Gen. 8</button></li>
+      <li><hr class="dropdown-divider-"></li>
+      <li class="d-flex justify-content-center"><button type="button" class="btn btn fs-3" id="gen-9-9">Gen. 9</button></li>
+    </ul>
+  </div>
+  <div class="fixed-bottom d-lg-none ">
     <form class="d-flex">
       <input class="form-control me-1 d-flex justify-content " type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success" type="submit">Search</button>
     </form>
     </div>
-  
-  
-  <hr>
-  <h2 class="text-center mt-5 fs-3">This is a Pokemon stat wordcloud generator. When you select a generation, then a pokemon. The information of the pokemon is then generated into a wordcloud, where the word used the most is the biggest.</h2>
-  <div id="pokemon-list" class="d-flex flex-wrap justify-content-center">
-  
-  </div>
-  
-  <div id="poke-info" class="h-50">
-  
-  </div>
-  
-  
-  
-  </body>
+<hr>
+<h2 class="text-center mt-4 fs-3">This is a Pokemon stat wordcloud generator. When you select a generation, then a pokemon. The information of the pokemon is then generated into a wordcloud, where the word used the most is the biggest.</h2>
+<div id="pokemon-list" class="d-flex flex-wrap justify-content-center">
+
+</div>
+
+<!-- Information page when pokemon is selected -->
+
+<div id="poke-info" class="h-50">
+
+</div>
+<br>
+<br>
+
+<!-- Search history section -->
+<div class="search-history d-flex flex-column align-items-center m-4">
+  <div class="fs-3 mb-3" style="border-bottom: 1px solid rgb(102, 102, 231);">History</div>
+</div>
+
+
+
+</body>
 <script src="./assets/script.js">
    
 </script>
