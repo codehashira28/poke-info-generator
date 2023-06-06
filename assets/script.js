@@ -76,7 +76,7 @@ function displayInfo(event) {
     backButton.textContent = "Back";
     backButton.addEventListener('click', goBack);
     backButton.style.position = "absolute";
-    backButton.style.right = "2rem";
+    backButton.style.left = "2rem";
     backButton.style.top = "0";
     if(event.target.localName != "button") {
         generateText(event.target.parentNode.id);
@@ -184,6 +184,10 @@ function goBack() {
     heading.style.display = "block";
     pokeInfo.setAttribute('style', 'display: none !important');
     pokemonlist.style.display = null;
+    if(heading.innerHTML.includes('This is a Pokemon stat wordcloud')) {
+      searchHistory.style.display = null;
+      displayHistory();
+    }
 }
 
 // function to select a random pokemon from generations 1,2 or 9
@@ -226,6 +230,7 @@ function searchPokemon2(event) {
 // function to display search/view history and allow information to be re-displayed if clicked
 
 function displayHistory() {
+  searchHistory.innerHTML = '<div class="fs-3 mb-3" style="border-bottom: 1px solid rgb(102, 102, 231);">History</div>'
   if(localStorage.length > 0) {
     for(var i = 0; i < localStorage.length; ++i) {
       var entry = document.createElement('button');
